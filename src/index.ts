@@ -67,7 +67,7 @@ export const directTypes = [
   mimeTypes.svg
 ]
 
-export const isBufferContentType = function (contentType: string) {
+export const isBufferContentType = (contentType: string) => {
   return [
     mimeTypes.jpeg,
     mimeTypes.gif,
@@ -86,7 +86,7 @@ export const getExt = (url: string) => {
   return (url && path.extname(url2filepath(url)).slice(1)) || ''
 }
 
-export const getMimeInfo = function (originalUrl: string, accept?: string, reqContentType?: string) {
+export const getMimeInfo = (originalUrl: string, accept?: string, reqContentType?: string) => {
   const ext = getExt(originalUrl)
   const acceptMime = accept?.split(',')[0]
   const currentMime: any = (mimeTypes as any)[ext] || acceptMime
